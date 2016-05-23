@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "Period";
+}
+
+<h2>疾病分期</h2>
+<div class="row">
+    <div class="col-md-12">
+        <form action="@Url.Action("Therapies")" method="post">
+            <h3>TNM分期法</h3>
+            <div class="col-md-offset-1">
+                <h4>T</h4>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodT" value="1" />
+                        1
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodT" value="2" />
+                        2
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodT" value="3" />
+                        3
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodT" value="4" />
+                        4
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodT" value="x" />
+                        x
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-offset-1">
+                <h4>N</h4>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodN" value="0" />
+                        0
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodN" value="1" />
+                        1
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodN" value="2" />
+                        2
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodN" value="3" />
+                        3
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodN" value="x" />
+                        x
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-offset-1">
+                <h4>M</h4>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodM" value="0" />
+                        0
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodM" value="1" />
+                        1
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="PeriodM" value="x" />
+                        x
+                    </label>
+                </div>
+            </div>
+            <h3>临床分期法</h3>
+            <div class="col-md-offset-1">
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="Clinical" value="Ⅰ期" />
+                        Ⅰ期
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="Clinical" value="Ⅱ期" />
+                        Ⅱ期
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="Clinical" value="Ⅲ期" />
+                        Ⅲ期
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="Clinical" value="Ⅳ期" />
+                        Ⅳ期
+                    </label>
+                </div>
+            </div>
+            <h3>简单分期</h3>
+            <div class="col-md-offset-1">
+                
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="Simple" value="早期" />
+                        早期
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="Simple" value="中期" />
+                        中期
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="Simple" value="晚期" />
+                        晚期
+                    </label>
+                </div>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="PeriodNone" value="未知" />
+                    未知
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">下一步</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Psychological";
+}
+
+<h2>目前心理状态</h2>
+<div class="row">
+    <div class="col-md-12">
+        <form action="@Url.Action("Report")" method="post">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="a" value="false">
+                    接受这一事实
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="b" value="false">
+                    否认，难以相信
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="c">
+                    对治疗充满希望
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="d" value="false">
+                    做任何事情都无法专心投入
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="e" value="false">
+                    很容易生气，经常因为小事冲对方发脾气
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="f" value="false">
+                    不想和任何人说话，不想被任何人打扰
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="g" value="false">
+                    认为今后的生活一定比较痛苦
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="h" value="false">
+                    对未来心灰意冷
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="i">
+                    相信科技发达的今天，就算不能完全治愈，也可以长期带瘤生活
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="g">
+                    继续工作生活需要治疗的时候就接受治疗，其余和往常一样
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="k">
+                    相信自己会完全治愈
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">下一步</button>
+        </form>
+    </div>
+</div>

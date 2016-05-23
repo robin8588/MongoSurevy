@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Record</title>
+    @Styles.Render("~/Content/css")
+    <script>
+        var question=@Html.Raw(ViewBag.question);
+        var answer=@Html.Raw(ViewBag.answer);
+    </script>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            问题
+                        </th>
+                        <th>
+                            回答
+                        </th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button id="btn">查看分析结果</button>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/form")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        $(function(){
+            $('.panel-heading').html(answer.patientName+' 的 '+question.title)
+            $.each(question.questions,function(i,v){
+                var name='question'+i;
+                var row='<tr><td>'+v.title+'</td><td>'+answer.answers[name]+'</td></tr>';
+                $(row).appendTo('tbody');
+            })
+
+            $('#btn').click(function(){
+                window.location.href='@Url.Action("Analyze")'+'/'+answer._id;
+            })
+        })
+    </script>
+</body>
+</html>

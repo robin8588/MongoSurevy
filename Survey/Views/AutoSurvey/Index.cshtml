@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <p><a href="@Url.Action("Create")">创建新问卷</a></p>
+    <div class="panel panel-default">
+        <div class="panel-heading">问卷列表</div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>问卷名称</th>
+                        <th>问卷类型</th>
+                        <th>适用病症</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/form")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        $(function () {
+            var questions=@Html.Raw(ViewBag.questions);
+            $.each(questions,function(i,v){
+                $('<tr id="survey'+i+'"></tr>').appendTo('tbody');
+                $('<td>'+v.title+'</td>').appendTo('#survey'+i);
+                $('<td>'+v.type+'</td>').appendTo('#survey'+i);
+                $('<td>'+v.application+'</td>').appendTo('#survey'+i);
+                $('<td><button>查看现有答卷</button></td>').click(function(){
+                    window.location.href='@Url.Action("Show")'+'/'+v._id;
+                }).appendTo('#survey'+i);
+                $('<td><button>答卷页</button></td>').click(function(){
+                    window.location.href='@Url.Action("Survey")'+'/'+v._id;
+                }).appendTo('#survey'+i);
+                $('<td><button>编辑问卷</button></td>').click(function(){
+                    window.location.href='@Url.Action("Edit")'+'/'+v._id;
+                }).appendTo('#survey'+i);
+            })
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Show</title>
+    @Styles.Render("~/Content/css")
+    <script>
+        var answer=@Html.Raw(ViewBag.answers);
+    </script>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">问卷</div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            患者姓名
+                        </th>
+                        <th>
+                            答卷日期
+                        </th>
+                        <th>
+                            
+                        </th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/form")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        $(function(){
+            $.each(answer,function(i,v){
+                var row='<tr id="record'+i+'">';
+                row+='<td>'+v.patientName+'</td>';
+                row+='<td>'+v.createDate+'</td>';
+                row+='</tr>';
+                $(row).appendTo('tbody');
+                var btn='<td><button>查看详情</button></td>';
+                $(btn).click(function(){
+                    window.location.href='@Url.Action("Record")'+'/'+v._id;
+                }).appendTo('#record'+i);
+            })
+        })
+    </script>
+</body>
+</html>

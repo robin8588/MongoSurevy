@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Recovery";
+}
+
+<h2>恢复状况</h2>
+<div class="row">
+    <div class="col-md-12">
+        <form action="@Url.Action("OtherDisease")" method="post">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Recovery" value="3." />
+                    优：我目前像正常人一样，可以正常生活和工作
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Recovery" value="3." />
+                    良：我目前生活可以完全自理，但是还会有化疗后的不良反应
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Recovery" value="3." />
+                    中：我目前生活勉强可以自理，但离不开别人的照顾，经常会有疾病本身的不适或治疗后的相关不适反应
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Recovery" value="3." />
+                    差：我目前日常生活难以自理，离不开别人的照顾，经常会有疾病本身的不适或治疗后的相关不适困扰
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="untowardEffect">不良反应</label>
+                <input type="text" class="form-control" name="untowardEffect" placeholder="150字以内">
+            </div>
+            <button type="submit" class="btn btn-default">下一步</button>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "Therapies";
+}
+
+<h2>治疗方法</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <form action="@Url.Action("Recovery")" method="post">
+            <h3>手术治疗</h3>
+            <div class="col-sm-offset-1">
+                <h4>手术方式</h4>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="r" value="false">
+                        胸腔镜手术
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="s" value="false">
+                        开胸手术
+                    </label>
+                </div>
+                <h4>切除方式</h4>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="t" value="false">
+                        部分肺切除
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="u" value="false">
+                        一侧全肺切除
+                    </label>
+                </div>
+            </div>
+
+            <h3>化疗</h3>
+            <div class="col-sm-offset-1">
+                <h4>化疗使用的药物</h4>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="a" value="false">
+                        顺铂
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="b" value="false">
+                        卡铂
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"  name="c" value="false">
+                        环磷铣铵
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="d" value="false">
+                        异环磷铣铵
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="e" value="false">
+                        阿霉素/多柔比星
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="f" value="false">
+                        依托泊苷
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="g" value="false">
+                        丝裂霉素
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="h" value="false">
+                        长春地辛
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="i" value="false">
+                        长春瑞滨
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="j" value="false">
+                        长春新城
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="k" value="false">
+                        紫杉醇
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="l" value="false">
+                        多西他赛
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="m" value="false">
+                        培美曲塞
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"name="n" value="false">
+                        吉西他滨
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="o"  value="false">
+                        伊立替康
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"  name="p" value="false">
+                        甲胺碟吟
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="q" value="false">
+                        拓扑替康
+                    </label>
+                </div>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="v" value="false">
+                    放疗
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">下一步</button>
+        </form>
+    </div>
+</div>

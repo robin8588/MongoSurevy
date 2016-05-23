@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">修改标题</div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                    <label for="surveyTitle">问卷名称</label>
+                    <input type="text" class="form-control" id="surveyTitle">
+                </div>
+                <div class="form-group">
+                    <label for="surveyType">问卷类型</label>
+                    <select class="form-control" id="surveyType">
+                        <option>病情监测</option>
+                        <option>疗效评估</option>
+                        <option>检验报告解读</option>
+                        <option>康复计划评估</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="surveyApplication">适用病症</label>
+                    <textarea class="form-control" rows="3" id="surveyApplication"></textarea>
+                </div>
+
+                <button id="save">提交修改</button>
+            </form>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/form")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        $(function () {
+            var question=JSON.parse('@Html.Raw(ViewBag.question)');
+            $('#surveyTitle').val(question.title);
+            $('#surveyType').val(question.type);
+            $('#surveyApplication').val(question.application);
+
+            $('#save').click(function (e) {
+                e.preventDefault();
+                var data = {};
+                data._id = question._id;
+                data.title = $('#surveyTitle').val();
+                data.type = $('#surveyType').val();
+                data.application = $('#surveyApplication').val();
+
+                $.post('@Url.Action("SaveEdit")', JSON.stringify(data), function (result) {
+                    if (result.error) {
+                        alert(result.error);
+                    } else {
+                        window.location.href = '@Url.Action("Index")';
+                    }
+                });
+            })
+        })
+    </script>
+</body>
+</html>

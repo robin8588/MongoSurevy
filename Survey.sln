@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey", "Survey\Survey.csproj", "{5C241A50-2AEC-42F2-BADC-C3A4D111936C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{B1864118-82D9-43EB-8A38-023DEDC6D402}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C241A50-2AEC-42F2-BADC-C3A4D111936C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C241A50-2AEC-42F2-BADC-C3A4D111936C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C241A50-2AEC-42F2-BADC-C3A4D111936C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C241A50-2AEC-42F2-BADC-C3A4D111936C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1864118-82D9-43EB-8A38-023DEDC6D402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1864118-82D9-43EB-8A38-023DEDC6D402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1864118-82D9-43EB-8A38-023DEDC6D402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1864118-82D9-43EB-8A38-023DEDC6D402}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

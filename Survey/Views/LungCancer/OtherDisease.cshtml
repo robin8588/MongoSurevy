@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "OtherDisease";
+}
+
+<h2>既往已经确诊的其他基础疾病</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <form action="@Url.Action("Psychological")" method="post">
+            <h3>肝脏功能异常</h3>
+            <div class="col-sm-offset-1">
+                <h4>目前状况是否稳定</h4>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="liver" value="1" />
+                        是
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="liver" value="0" />
+                        否
+                    </label>
+                </div>
+            </div>
+            <h3>心脑血管疾病</h3>
+            <div class="col-sm-offset-1">
+                <h4>目前状况是否稳定</h4>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="Cardiovascular" value="1" />
+                        是
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="Cardiovascular" value="0" />
+                        否
+                    </label>
+                </div>
+            </div>
+            <h3>高血压</h3>
+            <div class="col-sm-offset-1">
+                <h4>目前状况是否稳定</h4>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="hypertension" value="1" />
+                        是
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="hypertension" value="0" />
+                        否
+                    </label>
+                </div>
+            </div>
+            <h3>糖尿病</h3>
+            <div class="col-sm-offset-1">
+                <h4>目前状况是否稳定</h4>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="diabetes" value="1" />
+                        是
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="diabetes" value="0" />
+                        否
+                    </label>
+                </div>
+            </div>
+            <h3>其他</h3>
+            <div class="col-sm-offset-1">
+                <h4>目前状况是否稳定</h4>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="other" value="1" />
+                        是
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="other" value="0" />
+                        否
+                    </label>
+                </div>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="none" value="0" />
+                    无
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">下一步</button>
+        </form>
+    </div>
+</div>
+

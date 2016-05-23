@@ -1,0 +1,230 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateSurvey</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">添加标题</div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                    <label for="surveyTitle">问卷名称</label>
+                    <input type="text" class="form-control" id="surveyTitle">
+                </div>
+                <div class="form-group">
+                    <label for="surveyType">问卷类型</label>
+                    <select  class="form-control" id="surveyType">
+                        <option>病情监测</option>
+                        <option>疗效评估</option>
+                        <option>检验报告解读</option>
+                        <option>康复计划评估</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="surveyApplication">适用病症</label>
+                    <textarea class="form-control" rows="3" id="surveyApplication"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">添加题目</div>
+        <div class="panel-body">
+            <div id="form"></div>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">已添加的题目</div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>题目</th>
+                        <th>类型</th>
+                        <th>备选答案</th>
+                    </tr>
+                </thead>
+                <tbody id="table">
+                    
+                </tbody>
+            </table>
+            <button id="saveBtn">创建问卷</button>
+        </div>
+    </div>
+    
+    @Scripts.Render("~/bundles/form")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        $(function () {
+            var form = new Backbone.Form({
+                schema: {
+                    Type: {
+                        type: 'Select',
+                        title: '问题类型',
+                        editorClass: 'form-control',
+                        validators: ['required'] ,
+                        options: [
+                            { val: 'Text', label: '文字' },
+                            { val: 'Radio', label: '单选' },
+                            { val: 'Checkboxes', label: '多选' },
+                        ]
+                    },
+                    Title: { type: 'Text', title: '问题', editorClass: 'form-control', validators: ['required'] },
+                    Options: { type: 'List', title: '备选答案' }
+                },
+                submitButton: '添加问题'
+            }).render();
+
+            $('#form').append(form.el);
+
+            //form.on('Type:change', function (form, editor, extra) {
+            //    var selectValue = editor.getValue();
+            //    if (selectValue == 'Radio') {
+            //        form.remove();
+            //        var form = new Backbone.Form({
+            //            schema: {
+            //                Type: {
+            //                    type: 'Select',
+            //                    title: '问题类型',
+            //                    options: [
+            //                        { val: 'Text', label: '文字' },
+            //                        { val: 'Radio', label: '单选' },
+            //                        { val: 'Checkboxes', label: '多选' },
+            //                    ]
+            //                },
+            //                Title: { type: 'Text', title: '问题' },
+            //                Options: { type: 'List', title: '备选答案' }
+            //            },
+            //            submitButton: '添加',
+            //            data: {
+            //                Type: 'Radio'
+            //            }
+            //        }).render();
+
+            //        $('body').append(form.el);
+            //    } else if (selectValue == 'Checkboxes') {
+            //        form.remove();
+            //        var form = new Backbone.Form({
+            //            schema: {
+            //                Type: {
+            //                    type: 'Select',
+            //                    title: '问题类型',
+            //                    options: [
+            //                        { val: 'Text', label: '文字' },
+            //                        { val: 'Radio', label: '单选' },
+            //                        { val: 'Checkboxes', label: '多选' },
+            //                    ]
+            //                },
+            //                Title: { type: 'Text', title: '问题' },
+            //                Options: { type: 'List', title: '备选答案' }
+            //            },
+            //            submitButton: '添加',
+            //            data: {
+            //                Type: 'Checkboxes'
+            //            }
+            //        }).render();
+
+            //        $('body').append(form.el);
+            //    }
+            //    else {
+            //        form.remove();
+            //        var form = new Backbone.Form({
+            //            schema: {
+            //                Type: {
+            //                    type: 'Select',
+            //                    title: '问题类型',
+            //                    options: [
+            //                        { val: 'Text', label: '文字' },
+            //                        { val: 'Radio', label: '单选' },
+            //                        { val: 'Checkboxes', label: '多选' },
+            //                    ]
+            //                },
+            //                Title: { type: 'Text', title: '问题' }
+            //            },
+            //            submitButton: '添加',
+            //            data: {
+            //                Type: 'Text'
+            //            }
+            //        }).render();
+
+            //        $('body').append(form.el);
+            //    }
+            //});
+
+            
+
+            form.on('submit', function (e) {
+                e.preventDefault();
+                var n = form.getValue();
+                if (n.Title =='') {
+                    alert('问题必填');
+                } else if ((n.Type == 'Checkboxes' || n.Type == 'Radio')&& n.Options.length==0) {
+                    alert('没有备选答案')
+                } else {
+                    
+                    if (n.Type == 'Text') {
+                        $('<tr><td name="title">' + n.Title + '</td><td name="type">' + n.Type + '</td><td></td></tr>').appendTo('#table');
+                        form.setValue({ Title: '' });
+                    } else if (n.Type == 'Checkboxes' || n.Type == 'Radio') {
+                        var o = '<ul>';
+                        $.each(n.Options, function (i, v) {
+                            o += '<li>' + v + '</li>';
+                        });
+                        o += '</ul>'
+                        $('<tr><td name="title">' + n.Title + '</td><td name="type">' + n.Type + '</td><td>' + o + '</td></tr>').appendTo('#table');
+                        form.setValue({ Title: '' });
+                    }
+                }
+            });
+
+            $('#saveBtn').click(function () {
+                
+                var questions = new Array();
+                $('tbody tr').each(function (i, v) {
+                    var title = $(v).children('td[name="title"]').html();
+                    var type = $(v).children('td[name="type"]').html();
+                    var options = new Array();
+                    $.each($(v).find('li'),function (index, value) {
+                        options.push(value.innerText);
+                    });
+
+                    var question = {};
+                    question.title = title;
+                    question.type = type;
+                    question.options = options;
+
+                    questions.push(question);
+                });
+
+                var survey = {}
+                survey._id = '@ViewBag.id';
+                survey.title = $('#surveyTitle').val();
+                survey.type = $('#surveyType').val();
+                survey.application = $('#surveyApplication').val();
+                survey.questions = questions
+
+
+                $.post("@Url.Action("CreateSurvey")", JSON.stringify(survey), function (result) {
+                    if (result.error) {
+                        alert(result.error);
+                    } else {
+                        window.location.href = '@Url.Action("Survey/"+ViewBag.id)';
+                    }
+                })
+            })
+        });
+    </script>
+</body>
+</html>
